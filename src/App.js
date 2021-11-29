@@ -42,8 +42,8 @@ function App() {
     <nav className='p-5 bg-black text-white'>
       <p className='text-2xl'>Message Wall</p>
       <p className='text-sm'>by <a href="https://github.com/giamnesia" className='text-indigo-400'>giamnesia</a> </p>
-
     </nav>
+    
     <form onSubmit={handleSubmit} className='flex flex-col flex-wrap items-center justify-center mt-3'>
       <div className='flex flex-row flex-wrap justify-center items-center '>
       <textarea type="text" rows='8' cols='30'
@@ -53,13 +53,10 @@ function App() {
         onChange={handleSearch}
           value={message} />
       <HexColorPicker  color={color} onChange={setColor} />
-        
        </div>
-     
       <button className='p-2 m-2 w-60 rounded-md text-white bg-indigo-600' type='submit'>Submit</button>
-   
     </form>
-    
+
     <div className='flex flex-row flex-wrap items-center justify-center'>
       {display.map((item) => (
       <>

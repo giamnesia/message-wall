@@ -18,3 +18,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.arrow {
+  position: fixed;
+  bottom: 30px;
+  right: 7px;
+  z-index: 2;
+  padding: 1em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  .flex-columns {
+    @apply flex flex-col flex-wrap items-center justify-center;
+  }
+  .flex-rows {
+    @apply flex flex-row flex-wrap items-center justify-center;
+  }
+}

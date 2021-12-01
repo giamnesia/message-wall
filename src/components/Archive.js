@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { onSnapshot, collection, orderBy, query } from "@firebase/firestore";
-import Loader from "../images/loader.svg";
 import db from "../firebase/firebase";
 import Display from "./Display";
+import Loader from "react-loader-spinner";
+
 const Archive = () => {
   const [display, setDisplay] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,9 +19,15 @@ const Archive = () => {
 
   return (
     <div>
-        {loading ? (
-        <div className='flex-rows'>
-        <img src={Loader} alt="" />
+      {loading ? (
+        <div className="flex-rows">
+          <Loader
+            type="ThreeDots"
+            color="#000000"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+          />
         </div>
       ) : (
         <div className=" my-5 flex-rows">

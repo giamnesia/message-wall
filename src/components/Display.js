@@ -12,12 +12,19 @@ const Display = ({ value, color }) => {
     <div
       style={{
         backgroundColor: `${color}`,
-        width: "10.7rem",
-        padding: "0.5em",
+        width: "11rem",
+        margin: "0.1em",
       }}
-      className=" shadow-xl mt-5  flex-columns outline-none rounded-md  border-2  h-56 m-1"
+      className=" shadow-xl mt-5 flex-columns outline-none rounded-md  border-2  h-56"
     >
-      <p style={{ color: `${getContrastYIQ(color)}` }} className="text-sm ">
+      <p
+        style={{
+          color: `${getContrastYIQ(color)}`,
+          fontSize: "14px",
+          padding: '0.5em',
+          wordBreak: 'break-word'
+        }}
+      >
         {value}
       </p>
     </div>

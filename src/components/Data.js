@@ -32,12 +32,12 @@ const Data = () => {
     await addDoc(collectionRef, payload);
   };
   return (
-    <div className="bg-gray-50 py-8 mt-5">
+    <div className="bg-gray-50 py-5 mt-20">
       <form onSubmit={handleSubmit} className="flex-columns mt-3">
         <div className="flex-rows ">
           <textarea
             type="text"
-            className=" p-2 m-2 rounded-md border-2 w-56 h-48"
+            className=" p-2 m-2 rounded-md border-2 w-64 h-48"
             required
             maxlength="150"
             placeholder="Place your message here (150 characters)"
@@ -53,12 +53,12 @@ const Data = () => {
             <HexColorPicker
               color={color}
               onChange={setColor}
-              style={{ width: "12rem", height: "11.5rem" }}
+              style={{ width: "16rem", height: "11.5rem" }}
             />
           </div>
         </div>
         <button
-          className="p-2 mt-5 w-60 rounded-md text-white bg-indigo-600 hover:bg-black"
+          className="p-2 mt-5 w-64  rounded-md text-white bg-indigo-600 hover:bg-black"
           type="submit"
         >
           Submit

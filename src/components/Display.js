@@ -10,8 +10,8 @@ const Display = ({ value, color }) => {
 
   return (
     <div
-      style={{ backgroundColor: `${color}` }}
-      className=" shadow-xl mt-5  flex-columns outline-none rounded-md  border-2 w-44 h-64 m-1 p-2 md:w-56 h-56"
+      style={{ backgroundColor: `${color}`, width: "10.5rem" }}
+      className=" shadow-xl mt-5  flex-columns outline-none rounded-md  border-2  h-56 m-1 p-3 md:w-56"
     >
       <p style={{ color: `${getContrastYIQ(color)}` }} className="text-sm ">
         {value}

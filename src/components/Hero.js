@@ -1,13 +1,34 @@
-import React from "react";
+import {useState,useEffect}from "react";
 import Typewriter from "typewriter-effect";
 import Data from './Data'
 import { FaGithub, FaLinkedin, FaInstagram, FaArrowDown } from 'react-icons/fa';
+import Loader from "../images/loader.svg";
 
 const Hero = () => {
+
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
   return (
     <div >
-   <div className=" p-2 my-8 flex-columns ">
-      <p className="text-5xl p-2 m-2">
+      <div className=" p-2 my-8 flex-columns ">
+        {
+          loading ? (
+            <img className='w-40' src={Loader} alt="" />
+          ): (
+        <div className='flex-rows'>
+        <img className='w-28 md:w-32'src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535398d87131adfd0c974a_peep-25.svg" alt="" />
+        <img className='w-28 md:w-32 ' src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e53596f8e24933d7a06b0c7_peep-67.svg" alt="" />
+        <img className='w-28 md:w-32' src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5358878e2493fbea064dd9_peep-59.svg" alt="" />
+        </div>
+          )
+        }
+        
+      <p className="text-4xl p-2 m-5 md:text-5xl">
         <Typewriter
         options={{
           strings: ["Message Wall", "Share thoughts"],
@@ -15,20 +36,17 @@ const Hero = () => {
           loop: true,
         }}
           /></p>
-        <p className='m-5'>Made with React, Tailwind and Firebase</p>
+        <p className='m-5'>Made with <span class='text-indigo-700 font-bold'>React</span>,
+          <span class='text-indigo-700 font-bold'>Tailwind </span> and
+          <span class='text-indigo-700 font-bold'> Firebase</span> </p>
         <p>Follow me:</p>
-        <div className='flex-rows m-2 text-indigo-800 text-xl'>
+        <div className='flex-rows mt-4  text-xl'>
              <a href="https://github.com/giamnesia" target='_blank'><FaGithub className='mx-2' /></a> 
-              <a href=""><FaLinkedin  className=' '/></a>
+              <a href="https://www.linkedin.com/in/gia-marqueses-6a5368203/" target='_blank'><FaLinkedin  className=' '/></a>
               <a href="https://instagram.com/giamnesia" target='_blank'><FaInstagram className='mx-2' /></a>
         </div>
-        <div className='flex-columns mt-8 '>
-        <button onClick={() => {
-          window.scrollTo({
-            top: window.innerHeight,
-            behavior: "smooth",
-          });
-        }}  className='mt-8 text-white p-3 rounded-md bg-indigo-600'>Get Started</button>
+        <div className='flex-columns mt-5 '>
+       
         <FaArrowDown onClick={() => {
           window.scrollTo({
             top: window.innerHeight,

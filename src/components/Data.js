@@ -1,9 +1,7 @@
 import { HexColorPicker } from "react-colorful";
 import React, { useState } from "react";
 import { collection, addDoc, serverTimestamp } from "@firebase/firestore";
-
 import db from "../firebase/firebase";
-import Display from "./Display";
 import Archive from "./Archive";
 const Data = () => {
   const [message, setMessage] = useState("");
@@ -34,17 +32,15 @@ const Data = () => {
     await addDoc(collectionRef, payload);
   };
   return (
-    <div className="bg-gray-50 py-8">
+    <div className="bg-gray-50 py-8 mt-5">
       <form onSubmit={handleSubmit} className="flex-columns mt-3">
         <div className="flex-rows ">
           <textarea
             type="text"
-            rows="9"
-            cols="30"
-            className=" p-2 m-2 rounded-md border-2"
+            className=" p-2 m-2 rounded-md border-2 w-56 h-48"
             required
-            maxlength="200"
-            placeholder="Place your message here (200 characters)"
+            maxlength="150"
+            placeholder="Place your message here (150 characters)"
             style={{
               resize: "none",
               backgroundColor: `${color}`,
@@ -54,14 +50,15 @@ const Data = () => {
             value={message}
           />
           <div>
-            <p className="mb-3 cursor-not-allowed bg-indigo-600 w-48 p-2  text-white rounded-md">
-              Pick a Color
-            </p>
-            <HexColorPicker color={color} onChange={setColor} />
+            <HexColorPicker
+              color={color}
+              onChange={setColor}
+              style={{ width: "12rem", height: "11.5rem" }}
+            />
           </div>
         </div>
         <button
-          className="p-2 mt-5 w-60 rounded-md text-white bg-indigo-600"
+          className="p-2 mt-5 w-60 rounded-md text-white bg-indigo-600 hover:bg-black"
           type="submit"
         >
           Submit

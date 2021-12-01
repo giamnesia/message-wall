@@ -13,8 +13,8 @@ function App() {
           <nav className="p-4 bg-black text-white ">
               <ul className='flex-rows'>
                   <Link to='/'> <li className='m-2 '>home</li> </Link>
-                  <Link to='about'> <li className='m-2'>about</li> </Link>
-                  <Link to='archive'> <li className='m-2'>archive</li> </Link>
+                  <Link to='/about'> <li className='m-2'>about</li> </Link>
+                  <Link to='/archive'> <li className='m-2'>archive</li> </Link>
               </ul>
           </nav>
           <Top/>

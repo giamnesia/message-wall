@@ -1,9 +1,18 @@
 import Typewriter from "typewriter-effect";
-
+import Loader from "react-loader-spinner";
+import { useState, useEffect } from "react";
 const About = () => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <div className="flex-columns ">
-      <div className="m-3 w-80 flex-columns ">
+      <div className="m-3 w-70 flex-columns md:w-80 ">
         <p className="text-3xl p-3 m-3">
           <Typewriter
             options={{
@@ -22,25 +31,35 @@ const About = () => {
           either about yourself, your loved ones or ANYthing. Be creative. Share
           thoughts through a short message of 150 characters. Enjoy!
         </p>
-        <div class="flex-rows mt-5">
-          <img
-            class="w-20 mt-5"
-            src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535956e35d380d2b67a11f_peep-66.svg"
-            alt=""
+        {loading ? (
+          <Loader
+            type="ThreeDots"
+            color="#000000"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
           />
-          <img
-            class="w-20 mt-5"
-            src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535997e35d380ada67ad80_peep-68.svg"
-            alt=""
-          />
-          <img
-            class="w-20 mt-5"
-            src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535b3ad399233aa855d221_peep-82.svg"
-            alt=""
-          />
-        </div>
+        ) : (
+          <div class="flex-rows mt-5">
+            <img
+              class="w-20 mt-5"
+              src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535956e35d380d2b67a11f_peep-66.svg"
+              alt=""
+            />
+            <img
+              class="w-20 mt-5"
+              src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535997e35d380ada67ad80_peep-68.svg"
+              alt=""
+            />
+            <img
+              class="w-20 mt-5"
+              src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535b3ad399233aa855d221_peep-82.svg"
+              alt=""
+            />
+          </div>
+        )}
       </div>
-      <div className="bg-indigo-800 text-white p-2 absolute bottom-0 w-full">
+      <footer className="bg-indigo-800 text-white p-2  fixed bottom-0 w-full">
         <p className="text-xs m-1">This project was inspired by </p>
         <a
           className="text-md"
@@ -49,7 +68,7 @@ const About = () => {
         >
           #TheUnsentProject
         </a>
-      </div>
+      </footer>
     </div>
   );
 };

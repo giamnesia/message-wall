@@ -1,5 +1,5 @@
 import { HexColorPicker } from "react-colorful";
-import React, { useState } from "react";
+import { useState } from "react";
 import { collection, addDoc, serverTimestamp } from "@firebase/firestore";
 import db from "../firebase/firebase";
 import Archive from "./Archive";
@@ -30,6 +30,7 @@ const Data = () => {
       timestamp: serverTimestamp(),
     };
     await addDoc(collectionRef, payload);
+    setMessage("");
   };
   return (
     <div className="bg-gray-50 py-5 mt-20">
@@ -58,7 +59,7 @@ const Data = () => {
           </div>
         </div>
         <button
-          className="p-2 mt-5 w-64  rounded-md text-white bg-indigo-600 hover:bg-black"
+          className="p-2 m-5 w-44  rounded-md text-white bg-indigo-600 hover:bg-black"
           type="submit"
         >
           Submit

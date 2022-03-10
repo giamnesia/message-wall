@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { collection, query, where, getDocs, limit } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import db from "../firebase/firebase";
 import Display from "./Display";
 import Loader from "react-loader-spinner";
@@ -16,18 +16,21 @@ const Results = () => {
     queryName.charAt(0).toUpperCase() + queryName.slice(1).toLowerCase(),
   ];
 
-  useEffect(async () => {
-    const q = query(
-      collection(db, "messages"),
-      where("name", "in", queryVariations)
-    );
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      results.push(doc.data());
-      setDisplay(results ? results : []);
-      setNum(results.length);
-      setLoading(false);
-    });
+  useEffect(() => {
+    async function fetch() {
+      const q = query(
+        collection(db, "messages"),
+        where("name", "in", queryVariations)
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        results.push(doc.data());
+        setDisplay(results ? results : []);
+        setNum(results.length);
+        setLoading(false);
+      });
+    }
+    fetch();
   }, [queryName]);
   return (
     <div>
@@ -45,7 +48,9 @@ const Results = () => {
       ) : (
         <>
           <p class="mt-5">
-            <p className="text-lg">Searching the archive for `{queryName}`</p>
+            <p className="text-lg mb-3">
+              Searching the archive for '{queryName}'
+            </p>
             {num ? num : 0} Results for '{queryName}'
           </p>
           <div className=" my-5 flex-rows">
@@ -56,6 +61,7 @@ const Results = () => {
                     value={item.value}
                     name={item.name}
                     color={item.color}
+                    timestamp={item.timestamp.toDate().toDateString()}
                   />
                 </>
               ))

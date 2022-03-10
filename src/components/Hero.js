@@ -58,16 +58,26 @@ const Hero = () => {
         </p>
         <p>Follow me:</p>
         <div className="flex-rows mt-4  text-xl">
-          <a href="https://github.com/giamnesia" target="_blank">
+          <a
+            href="https://github.com/giamnesia"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaGithub className="mx-2" />
           </a>
           <a
             href="https://www.linkedin.com/in/gia-marqueses-6a5368203/"
             target="_blank"
+            rel="noreferrer"
           >
             <FaLinkedin className=" " />
           </a>
-          <a href="https://instagram.com/giamnesia" target="_blank">
+
+          <a
+            href="https://instagram.com/giamnesia"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaInstagram className="mx-2" />
           </a>
         </div>

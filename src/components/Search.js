@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { collection, doc, query, where, getDocs } from "firebase/firestore";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const Search = () => {
   const [search, setSearch] = useState();

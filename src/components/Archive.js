@@ -34,7 +34,10 @@ const Archive = () => {
       ) : (
         <div className="mt-5">
           <Search />
-          <p class="mt-3">{results} posts found</p>
+          <div class="flex-columns">
+            <p class="mt-7 text-3xl">{results} Posts Found</p>
+            <div class="w-20 mt-3 h-1 bg-black"></div>
+          </div>
           <div className=" my-5 flex-rows">
             {display.map((item) => (
               <>
@@ -42,6 +45,7 @@ const Archive = () => {
                   value={item.value}
                   color={item.color}
                   name={item.name}
+                  timestamp={item.timestamp.toDate().toDateString()}
                 />
               </>
             ))}

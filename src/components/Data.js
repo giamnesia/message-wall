@@ -41,7 +41,7 @@ const Data = () => {
   };
   return (
     <div className="bg-gray-50 py-5 mt-20">
-      <p className='text-red-600 italic text-sm m-2'>Note: This project used NoSQL database and doesn't allow to use space between characters</p>
+      <p className='text-red-600 italic text-sm m-2'>Note: One word only, Doesn't allow spaces</p>
       <form onSubmit={handleSubmit} className="flex-columns mt-3">
         <input  type='text' onKeyDown={handleKeyDown} onChange={handleName} value={name} className=" p-2 m-2 rounded-md border border-indigo-800 outline-none w-64 h-12" placeholder='To: Name'/>
 

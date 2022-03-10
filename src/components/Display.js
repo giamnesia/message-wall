@@ -1,4 +1,6 @@
-const Display = ({ value, color,name}) => {
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optionalptional for styling
+const Display = ({ value, color, name, timestamp }) => {
   const getContrastYIQ = (hexcolor) => {
     hexcolor = hexcolor.replace("#", "");
     var r = parseInt(hexcolor.substr(0, 2), 16);
@@ -9,7 +11,10 @@ const Display = ({ value, color,name}) => {
   };
 
   return (
-    <div
+    <div className='flex-columns'>
+      <Tippy content={timestamp}
+>
+<div
       style={{
         backgroundColor: `${color}`,
         width: "11rem",
@@ -37,7 +42,12 @@ const Display = ({ value, color,name}) => {
       >
         {value}
       </p>
+     
+      </div>
+</Tippy>
+    
     </div>
+   
   );
 };
 

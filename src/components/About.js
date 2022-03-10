@@ -65,6 +65,7 @@ const About = () => {
           className="text-md"
           href="https://theunsentproject.com"
           target="_blank"
+          rel="noreferrer"
         >
           #TheUnsentProject
         </a>

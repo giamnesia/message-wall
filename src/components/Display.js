@@ -1,4 +1,4 @@
-const Display = ({ value, color }) => {
+const Display = ({ value, color,name}) => {
   const getContrastYIQ = (hexcolor) => {
     hexcolor = hexcolor.replace("#", "");
     var r = parseInt(hexcolor.substr(0, 2), 16);
@@ -17,6 +17,16 @@ const Display = ({ value, color }) => {
       }}
       className=" shadow-xl mt-5 flex-columns outline-none rounded-md  border-2  h-56"
     >
+      <p
+           style={{
+            color: `${getContrastYIQ(color)}`,
+            fontSize: "14px",
+            padding: '0.5em',
+            wordBreak: 'break-word'
+          }}
+      >
+        To: {name}
+      </p>
       <p
         style={{
           color: `${getContrastYIQ(color)}`,

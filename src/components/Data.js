@@ -6,11 +6,13 @@ import Archive from "./Archive";
 const Data = () => {
   const [message, setMessage] = useState("");
   const [color, setColor] = useState("#000000");
-
+  const[name,setName]= useState("");
   const handleSearch = (e) => {
     setMessage(e.target.value);
   };
-
+  const handleName = (e) => {
+    setName(e.target.value)
+  }
   const getContrastYIQ = (hexcolor) => {
     hexcolor = hexcolor.replace("#", "");
     var r = parseInt(hexcolor.substr(0, 2), 16);
@@ -19,7 +21,11 @@ const Data = () => {
     var yiq = (r * 299 + g * 587 + b * 114) / 1000;
     return yiq >= 128 ? "black" : "white";
   };
-
+  const handleKeyDown = e => {
+    if (e.key === " ") {
+      e.preventDefault();
+    }
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const collectionRef = collection(db, "messages");
@@ -27,6 +33,7 @@ const Data = () => {
     const payload = {
       value: message,
       color: color,
+      name: name?name:'unknown',
       timestamp: serverTimestamp(),
     };
     await addDoc(collectionRef, payload);
@@ -34,8 +41,11 @@ const Data = () => {
   };
   return (
     <div className="bg-gray-50 py-5 mt-20">
+      <p className='text-red-600 italic text-sm m-2'>Note: This project used NoSQL database and doesn't allow to use space between characters</p>
       <form onSubmit={handleSubmit} className="flex-columns mt-3">
-        <div className="flex-rows ">
+        <input  type='text' onKeyDown={handleKeyDown} onChange={handleName} value={name} className=" p-2 m-2 rounded-md border border-indigo-800 outline-none w-64 h-12" placeholder='To: Name'/>
+
+        <div className="flex-rows " onChange={handleSearch}>
           <textarea
             type="text"
             className=" p-2 m-2 rounded-md border-2 w-64 h-48"

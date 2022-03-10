@@ -5,6 +5,7 @@ import About from "./components/About";
 import Archive from "./components/Archive";
 import Hero from "./components/Hero";
 import Top from "./components/Top";
+import Results from "./components/Results";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/about" element={<About />} />
           <Route path="/archive" element={<Archive />} />
+          <Route path="/results/:queryName" element={<Results />} />
         </Routes>
       </Router>
     </div>

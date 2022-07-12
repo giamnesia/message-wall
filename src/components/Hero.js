@@ -1,46 +1,31 @@
-import { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import Data from "./Data";
 import { FaGithub, FaLinkedin, FaInstagram, FaArrowDown } from "react-icons/fa";
-import Loader from "react-loader-spinner";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Hero = () => {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
   return (
     <div>
       <div className=" p-2 my-8 flex-columns ">
-        {loading ? (
-          <Loader
-            type="ThreeDots"
-            color="#000000"
-            height={100}
-            width={100}
-            timeout={3000} //3 secs
+        <div className="flex-rows">
+          <LazyLoadImage
+            effect="blur"
+            className="w-28 md:w-32"
+            src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535398d87131adfd0c974a_peep-25.svg"
+            alt=""
           />
-        ) : (
-          <div className="flex-rows">
-            <img
-              className="w-28 md:w-32"
-              src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535398d87131adfd0c974a_peep-25.svg"
-              alt=""
-            />
-            <img
-              className="w-28 md:w-32 "
-              src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e53596f8e24933d7a06b0c7_peep-67.svg"
-              alt=""
-            />
-            <img
-              className="w-28 md:w-32"
-              src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5358878e2493fbea064dd9_peep-59.svg"
-              alt=""
-            />
-          </div>
-        )}
+          <LazyLoadImage
+            effect="blur"
+            className="w-28 md:w-32 "
+            src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e53596f8e24933d7a06b0c7_peep-67.svg"
+            alt=""
+          />
+          <LazyLoadImage
+            effect="blur"
+            className="w-28 md:w-32"
+            src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5358878e2493fbea064dd9_peep-59.svg"
+            alt=""
+          />
+        </div>
 
         <p className="text-4xl p-2 m-5 md:text-5xl">
           <Typewriter

@@ -1,3 +1,4 @@
+import {useEffect }from 'react'
 import { HexColorPicker } from "react-colorful";
 import { useState } from "react";
 import { collection, addDoc, serverTimestamp } from "@firebase/firestore";
@@ -6,7 +7,9 @@ import Archive from "./Archive";
 const Data = () => {
   const [message, setMessage] = useState("");
   const [color, setColor] = useState("#000000");
-  const[name,setName]= useState("");
+  const [name, setName] = useState("");
+  
+ 
   const handleSearch = (e) => {
     setMessage(e.target.value);
   };
@@ -39,6 +42,7 @@ const Data = () => {
     await addDoc(collectionRef, payload);
     setMessage("");
   };
+ 
   return (
     <div className="bg-gray-50 py-5 mt-20">
       <p className='text-red-600 italic text-sm m-2'>Note: One word only, Doesn't allow spaces</p>
@@ -70,7 +74,6 @@ const Data = () => {
         </div>
         <button
           className="p-2 m-5 w-44  rounded-md text-white bg-indigo-600 hover:bg-black"
-          type="submit"
         >
           Submit
         </button>

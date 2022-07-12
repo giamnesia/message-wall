@@ -45,7 +45,9 @@ const Archive = () => {
                   value={item.value}
                   color={item.color}
                   name={item.name}
-                  timestamp={item.timestamp.toDate().toDateString()}
+                  timestamp={
+                    item.timestamp ? item.timestamp.toDate().toDateString() : []
+                  }
                 />
               </>
             ))}
